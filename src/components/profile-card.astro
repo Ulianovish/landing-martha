@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import foto from "~/assets/foto.png";
+---
+<div class="profile-card rounded-xl bg-opacity-15 bg-pink-300">
+    <Image
+      class="profile-image object-cover w-full h-full rounded-full"
+      src={foto}
+      alt="Profile picture"
+    />
+    <div class="profile-info p-4 flex flex-col items-center">
+      <h3 class="gradient-text text-xl font-bold mb-2">Briyito Barrero</h3>
+      <p class="gradient-text text-sm">Mama Emprendedora</p>
+    </div>
+  </div>
