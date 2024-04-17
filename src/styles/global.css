@@ -10,3 +10,8 @@ a,
   @apply bg-clip-text text-transparent;
   @apply bg-gradient-to-br from-orange-400 via-pink-500 to-orange-400;
 }
+
+.gradient-text-2 {
+  @apply bg-clip-text text-transparent;
+  @apply bg-gradient-to-br from-pink-900 via-black to-orange-900;
+}

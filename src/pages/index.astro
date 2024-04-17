@@ -1,5 +1,7 @@
 ---
 import "@fontsource-variable/inter";
+import About from "~/components/about.astro";
+import Classes from "~/components/classes.astro";
 import Splash from "~/components/splash.astro";
 import "~/styles/index.css";
 
@@ -56,5 +58,7 @@ const description =
     class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
   >
     <Splash />
+    <Classes />
+    <About />
   </body>
 </html>

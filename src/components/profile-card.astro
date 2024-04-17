@@ -2,14 +2,14 @@
 import { Image } from "astro:assets";
 import foto from "~/assets/foto.png";
 ---
-<div class="profile-card rounded-xl bg-opacity-15 bg-pink-300">
+<div class="profile-card grid rounded-xl bg-opacity-90 bg-[#dd7f8d] w-2/3 max-w-64 max-h-[400px] sm:w-10/12">
     <Image
-      class="profile-image object-cover w-full h-full rounded-full"
+      class="profile-image rounded-full ml-[-6%]"
       src={foto}
       alt="Profile picture"
     />
     <div class="profile-info p-4 flex flex-col items-center">
-      <h3 class="gradient-text text-xl font-bold mb-2">Briyito Barrero</h3>
-      <p class="gradient-text text-sm">Mama Emprendedora</p>
+      <h3 class="gradient-text-2 text-xl font-bold mb-2">Briyito Barrero</h3>
+      <p class="gradient-text-2 text-sm">Mama Emprendedora</p>
     </div>
   </div>

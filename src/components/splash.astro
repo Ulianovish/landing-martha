@@ -14,9 +14,9 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
   <!-- <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
     <HeroImage />
   </div> -->
-  <div class="relative grid gap-8 h-full place-items-center sm:grid-cols-2">
+  <div class="relative flex gap-8 h-full place-items-center flex-col justify-evenly">
     <h2
-      class="flex flex-col items-center gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
+      class="flex flex-col items-center gap-2 sm:gap-4"
     >
       <!-- <Icon name="logomark" class="size-24 text-white md:size-32" /> -->
       <div
@@ -26,14 +26,10 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
         </div>  
       <div
         class="gradient-text text-center font-extrabold tracking-tighter text-8xl"
-      > Mama que Factura.
+      > Mamá que Factura.
       </div>
     </h2>
-    <div
-      class="w-2/3 max-w-64 sm:w-10/12 sm:justify-self-center sm:self-end"
-    >
-      <ProfileCard />
-    </div>
+
     <!-- <div class="col-span-2"> -->
     <div class="flex flex-col gap-8 flex-wrap items-center sm:col-span-2">
       <CallToAction />
