@@ -1,15 +1,22 @@
 ---
-import { Image } from "astro:assets";
-import foto from "~/assets/foto.png";
+import { Image } from 'astro:assets';
+import foto from '~/assets/foto.png';
 ---
-<div class="profile-card grid rounded-xl bg-opacity-90 bg-[#dd7f8d] w-2/3 max-w-64 max-h-[400px] sm:w-10/12">
-    <Image
-      class="profile-image rounded-full ml-[-6%]"
-      src={foto}
-      alt="Profile picture"
-    />
-    <div class="profile-info p-4 flex flex-col items-center">
-      <h3 class="gradient-text-2 text-xl font-bold mb-2">Briyito Barrero</h3>
-      <p class="gradient-text-2 text-sm">Mamá Emprendedora</p>
-    </div>
+
+<div
+  class="profile-card grid max-h-[400px] w-2/3 max-w-64 rounded-xl bg-[#dd7f8d] bg-opacity-90 sm:w-10/12"
+  data-aos="fade-up"
+>
+  <Image class="profile-image ml-[-6%] rounded-full" src={foto} alt="Profile picture" />
+  <div class="profile-info flex flex-col items-center p-4">
+    <h3 class="gradient-text-2 mb-2 font-bold text-xl">Briyito Barrero</h3>
+    <p class="gradient-text-2 text-sm">Mamá Emprendedora</p>
   </div>
+</div>
+<script>
+  import AOS from 'aos';
+  import 'aos/dist/aos.css';
+  AOS.init({
+    duration: 750
+  });
+</script>

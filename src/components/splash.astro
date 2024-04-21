@@ -1,12 +1,11 @@
 ---
-
-import Starfield from "~/components/starfield.astro";
-import Countdown from "./countdown.astro";
-import CallToAction from "./call-to-action.astro";
-import ProfileCard from "./profile-card.astro";
+import Starfield from '~/components/starfield.astro';
+import Countdown from './countdown.astro';
+import CallToAction from './call-to-action.astro';
+import ProfileCard from './profile-card.astro';
 
 const widths = [450, 800];
-const sizes = "(min-width: 640px) 42vw, 67vw";
+const sizes = '(min-width: 640px) 42vw, 67vw';
 ---
 
 <section class="relative h-full bg-black">
@@ -14,30 +13,37 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
   <!-- <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
     <HeroImage />
   </div> -->
-  <div class="relative flex gap-8 h-full place-items-center flex-col justify-evenly">
-    <h2
-      class="flex flex-col items-center gap-2 sm:gap-4"
-    >
+  <div class="relative flex h-full flex-col place-items-center justify-evenly gap-8">
+    <h2 class="flex flex-col items-center gap-2 sm:gap-4">
       <!-- <Icon name="logomark" class="size-24 text-white md:size-32" /> -->
       <div
         class="gradient-text text-center font-extrabold tracking-tighter text-6xl"
+        data-aos="fade-up"
       >
         El Increíble Método,
-        </div>  
+      </div>
       <div
         class="gradient-text text-center font-extrabold tracking-tighter text-8xl"
-      > Mamá que Factura.
+        data-aos="fade-up"
+      >
+        Mamá que Factura.
       </div>
     </h2>
 
     <!-- <div class="col-span-2"> -->
-    <div class="flex flex-col gap-8 flex-wrap items-center sm:col-span-2">
+    <div class="flex flex-col flex-wrap items-center gap-8 sm:col-span-2">
       <CallToAction />
-      <Countdown />
+      <Countdown class="fade-up" />
     </div>
   </div>
 </section>
-
+<script>
+  import AOS from 'aos';
+  import 'aos/dist/aos.css';
+  AOS.init({
+    duration: 750
+  });
+</script>
 <noscript>
   <style>
     #splash-bg-fallback {
@@ -45,8 +51,22 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     }
   </style>
 </noscript>
-
 <style>
+  /* @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+  } */
   @keyframes float {
     0% {
       transform: translate3d(0, 0, 0);

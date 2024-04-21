@@ -1,34 +1,54 @@
 ---
-import ProfileCard from "./profile-card.astro";
+import CallToAction from './call-to-action.astro';
+import ProfileCard from './profile-card.astro';
 ---
 
-<div class="gradient grid px-8 gap-8 pb-8">
-  <div class="text-center gradient-text-2 font-extrabold tracking-tighter text-3xl uppercase">
+<div class="gradient grid gap-8 px-8 pb-8">
+  <div
+    class="gradient-text-2 text-center font-extrabold uppercase tracking-tighter text-3xl"
+    data-aos="fade-up"
+  >
     ¿Quién Soy y por qué puedo apoyarte?
   </div>
-  <div class="flex max-[752px]:flex-wrap justify-center gap-8 text-xs">
+  <div class="flex justify-center gap-8 text-sm max-[752px]:flex-wrap">
     <ProfileCard />
     <div class="max-w-[600px] leading-tight">
-      <h1 class="font-bold mb-4 gradient-text-2">¿Cómo crear tu propia tienda en internet y generar ingresos mensuales?</h1>
-      <p class="text-black mb-6">En este entrenamiento gratuito aprenderás cómo puedes tener una tienda virtual exitosa y vivir de ello. No necesitas experiencia previa y el curso es totalmente gratuito.</p>
+      <p class="mb-6 text-justify text-black" data-aos="fade-up">
+        ¡Hola! Soy Briyito Barrero, mamá y emprendedora apasionada. Aunque estudié ingeniería civil
+        y gerencia de proyectos, además de eso me capacite en finanzas y en liderazgo, mi dedicación
+        como mamá y ama de casa por varios años me llevó a buscar nuevas formas de generar ingresos
+        desde el hogar a través de negocios en línea. Después de muchas experiencias y aprendizajes,
+        descubrí las claves para una vida abundante. Ahora quiero compartir contigo estrategias y
+        herramientas para que también puedas lograr resultados en el mundo virtual. Por eso, creé
+        "Mamá que Factura", un método diseñado para mamás como tú que desean generar ingresos desde
+        casa y ser mamás presentes en la vida de sus niños.
+      </p>
 
-      <h2 class="font-bold mb-4 gradient-text-2">Masterclass de 4 clases</h2>
-      <p class="text-black mb-6">Aprende el paso a paso para crear un negocio rentable y ser una mamá presente con "Mamá que Factura".</p>
-
-      <h2 class="font-bold mb-4 gradient-text-2">¿Quién soy y por qué puedo ayudarte?</h2>
-      <p class="text-black mb-6">Soy Briyito Barrero, una emprendedora apasionada y mamá. Desde ingeniera civil y gerente de proyectos, he creado "Mamá que Factura", un método para madres amas de casa que desean generar ingresos desde casa.</p>
-      
-      <p class="text-black mb-6">Después de un largo viaje, encontré las claves para una vida abundante. Ahora, comparto estrategias y herramientas para que también logres resultados en el mundo virtual.</p>
-
-      <h2 class="font-bold mb-4 gradient-text-2">¿Estás listo para dar el primer paso?</h2>
-      <p class="text-black">Únete a mí en este emocionante viaje y descubre cómo puedes comenzar a crear la vida que siempre has deseado.</p>
+      <p class="mb-6 text-justify text-black" data-aos="fade-up">
+        Puedo ser tu guía en este viaje porque comprendo las exigencias de ser una mamá ama de casa,
+        profesional y emprendedora. He transitado por ese camino y entiendo los desafíos que
+        conlleva. Mi experiencia me ha enseñado valiosas lecciones que ahora puedo compartir
+        contigo, ayudándote a sortear obstáculos y alcanzar tus metas de manera más rápida y
+        efectiva. Con soluciones prácticas y específicas, te acompañaré paso a paso para que puedas
+        generar ingresos desde la comodidad del hogar y contribuir económicamente al hogar. Estoy
+        aquí para brindarte el apoyo que necesitas para construir una vida plena y exitosa como mamá
+        emprendedora.
+      </p>
+    </div>
   </div>
-
-  </div>
-
-  <style>
-    .gradient {
-      background-color: #b76e79;
-    }
-  </style>
 </div>
+<div class="gradient flex flex-col flex-wrap items-center gap-8 pb-14 sm:col-span-2">
+  <CallToAction />
+</div>
+<script>
+  import AOS from 'aos';
+  import 'aos/dist/aos.css';
+  AOS.init({
+    duration: 750
+  });
+</script>
+<style>
+  .gradient {
+    background-color: #b76e79;
+  }
+</style>
