@@ -1,3 +1,11 @@
+---
+import { Image } from 'astro:assets';
+import rocket from '~/assets/rocket.svg';
+import learn from '~/assets/learn.svg';
+import trophy from '~/assets/trophy.svg';
+import store from '~/assets/store.svg';
+---
+
 <div class="gradient grid space-y-12 px-8 py-10 min-[449px]:px-4">
   <div
     class="gradient-text-2 text-center font-extrabold tracking-tighter text-3xl"
@@ -17,7 +25,7 @@
         <div
           class="img-container gradient-text text-center font-extrabold tracking-tighter text-6xl"
         >
-          <img src="/learn.svg" alt="learn" />
+          <Image src={learn} alt="learn" />
         </div>
         <div class="gradient-text-2 ml-4 self-center text-center font-extrabold text-2xl">
           <h1>CLASE #1</h1>
@@ -34,7 +42,7 @@
     <div class="card h-60 w-[352px]" data-aos="fade-up">
       <div class="profile">
         <div class="img-container">
-          <img src="/store.svg" alt="store" />
+          <Image src={store} alt="store" />
         </div>
         <div class="gradient-text-2 ml-4 self-center text-center font-extrabold text-2xl">
           <h1>CLASE #2</h1>
@@ -51,7 +59,7 @@
     <div class="card h-60 w-[352px]" data-aos="fade-up">
       <div class="profile">
         <div class="img-container">
-          <img src="/rocket.svg" alt="rocket" />
+          <Image src={rocket} alt="rocket" />
         </div>
         <div class="gradient-text-2 ml-4 self-center text-center font-extrabold text-2xl">
           <h1>CLASE #3</h1>
@@ -65,7 +73,7 @@
     <div class="card h-60 w-[352px]" data-aos="fade-up">
       <div class="profile">
         <div class="img-container">
-          <img src="/trophy.svg" alt="trophy" />
+          <Image src={trophy} alt="trophy" />
         </div>
         <div class="gradient-text-2 ml-4 self-center text-center font-extrabold text-2xl">
           <h1>CLASE #4</h1>
