@@ -1,14 +1,13 @@
 <div data-aos="fade-up">
-  <a
-    href="https://chat.whatsapp.com/JQ2ns318gYj8ZFsOoUuHQh"
-    target="_blank"
-    onclick="fbq('track', 'ConversionEvent')"></a>>
-  <div
-    class="button-call gradient-text font-bold uppercase transition duration-300 ease-in-out hover:scale-110"
-  >
-    Inscribete Ahora
-    <div class="button-call-2 opacity-0"></div>
-  </div>
+  <!-- <a href="https://chat.whatsapp.com/JQ2ns318gYj8ZFsOoUuHQh" target="_blank" id="whatsappLink"> -->
+  <a href="https://chat.whatsapp.com/JQ2ns318gYj8ZFsOoUuHQh" target="_blank" id="whatsappLink">
+    <div
+      class="button-call gradient-text font-bold uppercase transition duration-300 ease-in-out hover:scale-110"
+    >
+      Inscribete Ahora
+      <div class="button-call-2 opacity-0"></div>
+    </div>
+  </a>
 </div>
 
 <script>
@@ -17,6 +16,38 @@
   AOS.init({
     duration: 750
   });
+  // fbq('init', '1129534935130605');
+  !(function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s);
+  })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1129534935130605');
+  // function sendMetaPixelEvent() {
+  //   // Fire custom Meta Pixel event
+  //   fbq('track', 'WhatsAppLinkClicked');
+
+  //   window.location.href = 'https://chat.whatsapp.com/JQ2ns318gYj8ZFsOoUuHQh';
+  // }
+  document.getElementById('whatsappLink').addEventListener('click', function () {
+    // Add your Meta Pixel event code here
+    // Replace 'EventName' with the actual event name you want to track
+    fbq('track', 'ConversionEvent');
+  });
+
+  // fbq('track', 'ConversionEvent');
 </script>
 <style>
   .button-call,
