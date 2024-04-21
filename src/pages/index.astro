@@ -50,7 +50,6 @@ const description = 'Aprende El Increíble Método Mamá Que Factura';
       });
     </script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
   </head>
   <body
     class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
@@ -79,3 +78,31 @@ const description = 'Aprende El Increíble Método Mamá Que Factura';
     animation: fadeUp 0.5s ease forwards;
   }
 </style>
+<script>
+  function loadMetaPixel() {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    document.body.appendChild(script);
+
+    // After the script loads (optional):
+    script.onload = () => {
+      // Now you can access fbq safely
+      fbq('init', '728801829424929'); // Replace with your Pixel ID
+    };
+  }
+
+  loadMetaPixel();
+
+  function fbq(arg0: string, arg1: string) {
+    throw new Error('Function not implemented.');
+  }
+</script>
+<noscript
+  ><img
+    height="1"
+    width="1"
+    style="display:none"
+    src="https://www.facebook.com/tr?id=TU_ID_DE_PIXEL&ev=PageView&noscript=1"
+  /></noscript
+>
