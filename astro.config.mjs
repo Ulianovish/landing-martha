@@ -6,7 +6,7 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astro-moon-landing.netlify.app/",
+  site: "https://mamaquefactura.com/",
   integrations: [tailwind(), icon()],
   output: "server",
   adapter: cloudflare()
