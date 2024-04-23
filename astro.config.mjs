@@ -8,6 +8,7 @@ import cloudflare from "@astrojs/cloudflare";
 export default defineConfig({
   site: "https://mamaquefactura.com/",
   integrations: [tailwind(), icon()],
+  // coment to build in local
   output: "server",
   adapter: cloudflare()
 });
