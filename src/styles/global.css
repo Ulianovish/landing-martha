@@ -1,4 +1,7 @@
 /* TODO: consider creating <Button> and <GradientText> components */
+@import "@fontsource-variable/dancing-script";
+@import "@fontsource/bebas-neue";
+@import url('https://fonts.googleapis.com/css?family=Bangers');
 a,
 .btn {
   @apply transition-colors duration-200;
@@ -8,10 +11,16 @@ a,
 
 .gradient-text {
   @apply bg-clip-text text-transparent;
-  @apply bg-gradient-to-br from-orange-400 via-pink-500 to-orange-400;
+  @apply bg-gradient-to-br from-sky-800 via-sky-700 to-sky-600;
 }
 
 .gradient-text-2 {
-  @apply bg-clip-text text-transparent;
-  @apply bg-gradient-to-br from-pink-900 via-black to-orange-900;
+  @apply text-white;
+  text-shadow: 
+    -0.8px -0.8px 0 #000,  
+    0.8px -0.8px 0 #000,
+    -0.8px 0.8px 0 #000,
+    0.8px 0.8px 0 #000;
 }
+
+

@@ -6,6 +6,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
+        'bebas-neue': ['"Bebas Neue"', 'sans-serif'],
+        'dancing-script': ['"Dancing Script Variable"', 'cursive'],
       },
       colors: {
         primary: "var(--color-primary)",
@@ -21,6 +23,9 @@ module.exports = {
       },
       borderColor: {
         default: "var(--color-border)",
+      },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(to right, #0093e9, #80d0c7, #e0c3fc, #fad0c4, #ffaa85)',
       },
     },
   },

@@ -8,7 +8,7 @@ import store from '~/assets/store.svg';
 
 <div class="gradient grid space-y-12 px-8 py-10 min-[449px]:px-4">
   <div
-    class="gradient-text-2 text-center font-extrabold tracking-tighter text-3xl"
+    class="gradient-text text-center font-extrabold tracking-tighter text-3xl"
     data-aos="fade-up"
   >
     4 CLASES CON EL PASO A PASO<span class="hidden min-[480px]:inline min-[900px]:hidden"
@@ -20,31 +20,31 @@ import store from '~/assets/store.svg';
   <div
     class="inline-flex max-w-[1100px] flex-wrap justify-center gap-4 justify-self-center min-[900px]:gap-8"
   >
-    <div class="card h-60 w-[352px]" data-aos="fade-up">
+    <div class="card clase1" data-aos="fade-up">
       <div class="profile">
-        <div
+        <!-- <div
           class="img-container gradient-text text-center font-extrabold tracking-tighter text-6xl"
         >
           <Image src={learn} alt="learn" />
-        </div>
-        <div class="gradient-text-2 ml-4 self-center text-center font-extrabold text-2xl">
+        </div> -->
+        <div class="ml-4 self-center text-center font-extrabold text-white text-2xl">
           <h1>CLASE #1</h1>
         </div>
       </div>
       <div class="description text-justify uppercase">
         <span>
-          Aprenderás el mismo método que están usando cientos de mamás para crear un negocio solido
-          en internet con tiendas en línea
+          Aprenderás el mismo método que están usando cientos de personas para crear un negocio
+          solido en internet con tiendas en línea
         </span>
       </div>
     </div>
 
-    <div class="card h-60 w-[352px]" data-aos="fade-up">
+    <div class="card clase2" data-aos="fade-up">
       <div class="profile">
-        <div class="img-container">
+        <!-- <div class="img-container">
           <Image src={store} alt="store" />
-        </div>
-        <div class="gradient-text-2 ml-4 self-center text-center font-extrabold text-2xl">
+        </div> -->
+        <div class="ml-4 self-center text-center font-extrabold text-2xl">
           <h1>CLASE #2</h1>
         </div>
       </div>
@@ -56,38 +56,39 @@ import store from '~/assets/store.svg';
       </div>
     </div>
 
-    <div class="card h-60 w-[352px]" data-aos="fade-up">
+    <div class="card clase3" data-aos="fade-up">
       <div class="profile">
-        <div class="img-container">
+        <!-- <div class="img-container">
           <Image src={rocket} alt="rocket" />
-        </div>
-        <div class="gradient-text-2 ml-4 self-center text-center font-extrabold text-2xl">
+        </div> -->
+        <div class="ml-4 self-center text-center font-extrabold text-2xl">
           <h1>CLASE #3</h1>
         </div>
       </div>
-      <div class="gradient-text-2 description text-justify uppercase">
+      <div class="description text-justify uppercase">
         <span> La forma más fácil de crear TÚ PROPIA TIENDA en internet en menos de 15 días</span>
       </div>
     </div>
 
-    <div class="card h-60 w-[352px]" data-aos="fade-up">
+    <div class="card clase4" data-aos="fade-up">
       <div class="profile">
-        <div class="img-container">
+        <!-- <div class="img-container">
           <Image src={trophy} alt="trophy" />
-        </div>
-        <div class="gradient-text-2 ml-4 self-center text-center font-extrabold text-2xl">
+        </div> -->
+        <div class="ml-4 self-center text-center font-extrabold text-2xl">
           <h1>CLASE #4</h1>
         </div>
       </div>
       <div class="description text-justify uppercase">
         <span>
-          Como convertirte en una mamá que factura exitosa creando TIENDAS EN LÍNEA, y recibir una
-          renta
+          Como convertirte en una emprendedor exitoso creando TIENDAS EN LÍNEA que te permitan
+          recibir una renta mensual que crece todos los meses
         </span>
       </div>
     </div>
   </div>
 </div>
+
 <script>
   import AOS from 'aos';
   import 'aos/dist/aos.css';
@@ -97,9 +98,9 @@ import store from '~/assets/store.svg';
 </script>
 <style>
   .card {
+    /* height: 80%; */
     display: flex;
     flex-direction: column;
-    padding: 1rem;
     border-radius: 1rem;
     background-color: #dd7f8d;
     /* background: linear-gradient(
@@ -111,6 +112,32 @@ import store from '~/assets/store.svg';
     -moz-box-shadow: 0px 0px 2px -2px #c7c3c7;
     box-shadow: 0px 0px 2px -2px #c7c3c7;
     transition: all 100ms ease;
+    @apply h-[300px] w-[300px] min-[560px]:h-[400px] min-[560px]:w-[352px];
+  }
+
+  .clase1 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
+      url(../assets/clase1.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .clase2 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
+      url(../assets/clase2.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .clase3 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
+      url(../assets/clase3.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .clase4 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)),
+      url(../assets/clase4.jpg);
+    background-size: cover;
+    background-position: center;
   }
 
   .card:hover {
@@ -132,6 +159,10 @@ import store from '~/assets/store.svg';
   .profile {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    background: linear-gradient(to bottom, #075985, #0369a1, #0284c7);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
   }
 
   .name {
@@ -160,16 +191,18 @@ import store from '~/assets/store.svg';
     flex: 1 0 0;
     margin-top: 0.5rem;
     display: flex;
-    align-items: center;
+    align-items: end;
+    text-align: center;
+    padding: 1rem;
   }
   .description > span {
     /* font-family: Lato, sans-serif; */
-    color: black;
+    color: white;
     font-size: 1rem;
     font-weight: 800;
     letter-spacing: 0.4px;
   }
   .gradient {
-    background-color: #b76e79;
+    background: linear-gradient(to right, #0093e9, #80d0c7, #e0c3fc, #fad0c4, #ffaa85);
   }
 </style>

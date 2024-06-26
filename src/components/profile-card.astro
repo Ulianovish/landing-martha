@@ -1,16 +1,16 @@
 ---
 import { Image } from 'astro:assets';
-import foto from '~/assets/foto.webp';
+import foto from '~/assets/foto-martha.png';
 ---
 
 <div
-  class="profile-card grid max-h-[400px] w-2/3 max-w-64 rounded-xl bg-[#dd7f8d] bg-opacity-90 sm:w-10/12"
+  class="profile-card -mt-[80px] mb-[80px] grid max-h-[400px] w-2/3 max-w-64 rounded-xl sm:w-10/12"
   data-aos="fade-up"
 >
-  <Image class="profile-image ml-[-6%] rounded-full" src={foto} alt="Profile picture" />
-  <div class="profile-info flex flex-col items-center p-4">
-    <h1 class="gradient-text-2 mb-2 font-bold text-xl">Briyito Barrero</h1>
-    <p class="gradient-text-2 text-sm">Mamá Emprendedora</p>
+  <Image class="profile-image rounded-full" src={foto} alt="Profile picture" />
+  <div class="profile-info flex flex-col items-start p-4">
+    <h1 class="gradient-text -mt-20 mb-2 font-bold text-xl">Martha Isabel Acero</h1>
+    <p class="gradient-text text-sm">Emprendedora</p>
   </div>
 </div>
 <script>

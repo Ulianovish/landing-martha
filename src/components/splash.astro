@@ -8,41 +8,55 @@ const widths = [450, 800];
 const sizes = '(min-width: 640px) 42vw, 67vw';
 ---
 
-<section class="relative h-full bg-black">
-  <Starfield />
+<section class="background-intro relative h-full">
+  <div class="introbg">
+    <Starfield />
+  </div>
   <!-- <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
     <HeroImage />
   </div> -->
-  <div class="relative flex h-full flex-col place-items-center justify-evenly gap-8">
+  <div
+    class="relative flex h-full flex-col place-items-center justify-evenly gap-8"
+    data-aos="fade-up"
+    data-aos-delay="1000"
+  >
     <h2 class="flex flex-col items-center gap-2 sm:gap-4">
       <!-- <Icon name="logomark" class="size-24 text-white md:size-32" /> -->
-      <div
+      <!-- <div
         class="gradient-text text-center font-extrabold tracking-tighter text-6xl"
         data-aos="fade-up"
       >
-        El Increíble Método,
-      </div>
-      <div
-        class="gradient-text text-center font-extrabold tracking-tighter text-8xl"
-        data-aos="fade-up"
-      >
-        Mamá que Factura.
+        Se un Trabajador VIP
+      </div> -->
+      <div class="leading-[5.5rem] min-[560px]:leading-[9rem]">
+        <h1 class="gradient-text font-bebas-neue fs10 pt-4">DESAFÍO</h1>
+        <div class="flex">
+          <h1 class="gradient-text font-bebas-neue fs7 -mt-5 ml-1">DIGITAL</h1>
+          <span class="font-dancing-script fs8 gradient-text">MIA</span>
+        </div>
       </div>
     </h2>
 
     <!-- <div class="col-span-2"> -->
     <div class="flex flex-col flex-wrap items-center gap-8 sm:col-span-2">
       <CallToAction />
-      <Countdown class="fade-up" />
+      <Countdown date="2024-12-31T23:59:59" />
     </div>
   </div>
 </section>
 <script>
   import AOS from 'aos';
+  import 'animate.css';
   import 'aos/dist/aos.css';
-  AOS.init({
-    duration: 750
-  });
+  // AOS.init({
+  //   duration: 750
+  // });
+
+  setTimeout(function () {
+    document.querySelector('.introbg').classList.add('opaco');
+    document.querySelector('.flex.h-full.flex-col.place-items-center.justify-evenly.gap-8');
+    // .classList.remove('invisible');
+  }, 1000);
 </script>
 <noscript>
   <style>
@@ -52,21 +66,63 @@ const sizes = '(min-width: 640px) 42vw, 67vw';
   </style>
 </noscript>
 <style>
-  /* @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+  .introbg {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out; /* Transición suave de la opacidad */
+  }
+
+  .introbg.opaco {
+    opacity: 0.4;
+  }
+  .background-intro {
+    background: linear-gradient(to right, #0093e9, #80d0c7, #e0c3fc, #fad0c4, #ffaa85);
+  }
+
+  .title-section {
+    text-align: center;
+    color: white;
+    padding: 20px;
+  }
+
+  .title-section h1 {
+    /* font-size: 3em; */
+    margin: 0;
+  }
+
+  .fs10 {
+    font-size: 13rem;
+    @media (max-width: 560px) {
+      font-size: 6.5rem;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  }
+  .fs8 {
+    font-size: 9rem;
+    @media (max-width: 560px) {
+      font-size: 5rem;
     }
   }
 
-  .fade-up {
-    opacity: 0;
-    animation: fadeUp 0.5s ease forwards;
-  } */
+  .fs7 {
+    font-size: 6rem;
+    @media (max-width: 560px) {
+      font-size: 3rem;
+    }
+  }
+
+  .title-section .desafio {
+    font-size: 3em; /* Larger font size for "DESAFÍO" */
+  }
+
+  .title-section .mia {
+    font-family: 'Brush Script MT', cursive; /* Similar font style for "MIA" */
+    color: #ffd700; /* Gold color for "MIA" */
+  }
+
+  .title-section .date {
+    font-size: 1.5em; /* Increased font size for date */
+    margin-top: 10px;
+  }
+
   @keyframes float {
     0% {
       transform: translate3d(0, 0, 0);
@@ -77,7 +133,7 @@ const sizes = '(min-width: 640px) 42vw, 67vw';
     }
   }
 
-  #astronaut {
+  /* #astronaut {
     animation: float linear 2.5s infinite alternate;
   }
 
@@ -93,5 +149,5 @@ const sizes = '(min-width: 640px) 42vw, 67vw';
     #splash-bg-fallback {
       @apply block;
     }
-  }
+  } */
 </style>

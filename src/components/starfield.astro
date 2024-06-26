@@ -1,105 +1,236 @@
-<div id="starfield" class="absolute inset-0 ">
-  <canvas id="starfield-canvas"></canvas>
-</div>
-
+<div id="app" class="absolute inset-0"></div>
 <script>
-  import invariant from "tiny-invariant";
+  import gsap from 'gsap';
+  //Initialize the app container
+  const app = document.getElementById('app');
 
-  const COUNT = 800;
-  const SPEED = 0.1;
+  //Add some classes to the app container
+  app.classList.add('bg-indigo-100', 'h-fit', 'w-width', 'flex', 'items-center');
 
-  class Star {
-    x: number;
-    y: number;
-    z: number;
-    xPrev: number;
-    yPrev: number;
+  //Array of majors to list out:
+  const ourMajors = [
+    'Éxito',
+    'Emprende',
+    'Logralo',
+    'Crecimiento',
+    'Innovación',
+    'Liderazgo',
+    'Creatividad',
+    'Visión',
+    'Motivación',
+    'Superación',
+    'Estrategia',
+    'Perseverancia',
+    'Objetivos',
+    'Metas',
+    'Inspiración',
+    'Determinación',
+    'Progreso',
+    'Excelencia',
+    'Disciplina',
+    'Empoderamiento',
+    'Desarrollo',
+    'Impacto',
+    'Transformación',
+    'Resiliencia',
+    'Éxito',
+    'Empuje',
+    'Iniciativa',
+    'Talento',
+    'Potencial',
+    'Esfuerzo',
+    'Innovador',
+    'Cambio',
+    'Avance',
+    'Conquista',
+    'Realización',
+    'Triunfo',
+    'Ambición',
+    'Pasión',
+    'Logro',
+    'Consecución',
+    'Vanguardia',
+    'Cumbre',
+    'Cima',
+    'Oportunidad',
+    'Emprendimiento',
+    'Proactividad',
+    'Autodisciplina',
+    'Proyección',
+    'Ascenso',
+    'Prosperidad',
+    'Ascender',
+    'Dominio',
+    'Maestría',
+    'Autogestión',
+    'Potenciación',
+    'Productividad',
+    'Florecimiento',
+    'Competencia',
+    'Determinación',
+    'Firmeza',
+    'Alcance',
+    'Persistencia',
+    'Resolución',
+    'Creación',
+    'Posibilidad',
+    'Rendimiento',
+    'Capacidad',
+    'Habilidad',
+    'Ingenio',
+    'Confianza',
+    'Empuje',
+    'Dedicación',
+    'Superación',
+    'Meta',
+    'Desafío',
+    'Motivación'
+  ];
 
-    constructor(x = 0, y = 0, z = 0) {
-      this.x = x;
-      this.y = y;
-      this.z = z;
-      this.xPrev = x;
-      this.yPrev = y;
+  //Create the container that will hold our rows of lists
+  const listContainer = () => {
+    const listContainer = document.createElement('div');
+    listContainer.classList.add(
+      'majors__container',
+      'mx-auto',
+      'overflow-hidden',
+      'bg-custom-gradient',
+      'h-screen'
+    );
+
+    //Add another div to rotate the lists to make a little more interesting
+    const slantContainer = document.createElement('div');
+    slantContainer.classList.add('-mt-16', 'rotate-[-10deg]');
+
+    //This is to alternate classes between odd + even
+    let even = false;
+
+    //Loop to create the multiple rows
+    for (let i = 0; i < 15; i++) {
+      //Shuffle the array so that the lists appear randomized
+      ourMajors.sort(() => {
+        return 0.5 - Math.random();
+      });
+
+      //Pass the array into the list parameter as well as the even parameter
+      slantContainer.appendChild(list(ourMajors, even));
+
+      //toggle the variable to make sure it differentiates on the next iteration
+      even = !even;
     }
 
-    update(width: number, height: number, speed: number) {
-      this.xPrev = this.x;
-      this.yPrev = this.y;
-      this.z += speed * 0.0675;
-      this.x += this.x * (speed * 0.0225) * this.z;
-      this.y += this.y * (speed * 0.0225) * this.z;
-      if (
-        this.x > width / 2 ||
-        this.x < -width / 2 ||
-        this.y > height / 2 ||
-        this.y < -height / 2
-      ) {
-        this.x = Math.random() * width - width / 2;
-        this.y = Math.random() * height - height / 2;
-        this.xPrev = this.x;
-        this.yPrev = this.y;
-        this.z = 0;
-      }
+    //Add the slanted container to the list container
+    listContainer.appendChild(slantContainer);
+
+    //Add the list container to the app
+    app.appendChild(listContainer);
+  };
+
+  //Creates the list
+  const list = (items, even) => {
+    const listEl = document.createElement('ul');
+    listEl.classList.add('majors__list', 'flex');
+
+    //Uses the even parameter to determine if the --even or --odd modifier classes should be applied
+    if (even) {
+      listEl.classList.add('majors__list--even', 'translate-x-[-200%]');
+    } else {
+      listEl.classList.add('majors__list--odd');
     }
 
-    draw(ctx: CanvasRenderingContext2D) {
-      ctx.lineWidth = this.z;
-      ctx.beginPath();
-      ctx.moveTo(this.x, this.y);
-      ctx.lineTo(this.xPrev, this.yPrev);
-      ctx.stroke();
-    }
-  }
+    items.forEach((item) => {
+      listEl.appendChild(listItem(item));
+    });
+    return listEl;
+  };
 
-  const stars = Array.from({ length: COUNT }, () => new Star(0, 0, 0));
-  let rafId = 0;
+  //Creates the list item
+  const listItem = (item) => {
+    const listItemEl = document.createElement('li');
+    listItemEl.classList.add(
+      'majors__list-item',
+      'whitespace-nowrap',
+      'mx-4',
+      'my-2',
+      'text-3xl',
+      'uppercase',
+      'text-white'
+    );
+    listItemEl.innerText = item;
+    return listItemEl;
+  };
 
-  const canvas = document.querySelector(
-    "#starfield-canvas",
-  ) as HTMLCanvasElement;
-  invariant(canvas, "canvas should not be null");
-  const ctx = canvas.getContext("2d");
+  //initializes the listContainer and renders it in the DOM
+  listContainer();
 
-  const container = document.querySelector("#starfield") as HTMLElement;
-  invariant(container, "container should not be null");
-  const resizeObserver = new ResizeObserver(setup);
-  resizeObserver.observe(container);
+  //Store the odd and even elements into arrays
+  const evenRows = document.querySelectorAll('.majors__list--even');
+  const oddRows = document.querySelectorAll('.majors__list--odd');
 
-  function setup() {
-    invariant(ctx, "canvas context should not be null");
-    rafId > 0 && cancelAnimationFrame(rafId);
+  //Animation will be a very slow, gentle sliding effect that alternates directions between rows
 
-    const { clientWidth: width, clientHeight: height } = container;
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
-    ctx.scale(dpr, dpr);
+  //Add animation for the even rows
+  evenRows.forEach((row) => {
+    const rowTL = gsap.timeline();
 
-    for (const star of stars) {
-      star.x = Math.random() * width - width / 2;
-      star.y = Math.random() * height - height / 2;
-      star.z = 0;
-    }
+    rowTL.to(row, {
+      transform: 'translate(0)',
+      duration: 800,
+      ease: 'power2'
+    });
+  });
 
-    ctx.translate(width / 2, height / 2);
-    ctx.fillStyle = "rgba(0, 0, 0, 0.4)";
-    ctx.strokeStyle = "white";
-    rafId = requestAnimationFrame(frame);
-  }
+  //Add animation for the odd rows
+  oddRows.forEach((row) => {
+    const rowTL = gsap.timeline();
 
-  function frame() {
-    invariant(ctx, "canvas context should not be null");
-    const { clientWidth: width, clientHeight: height } = container;
+    rowTL.to(row, {
+      transform: 'translate(-100%)',
+      duration: 800,
+      ease: 'power2'
+    });
+  });
 
-    for (const star of stars) {
-      star.update(width, height, SPEED);
-      star.draw(ctx);
-    }
+  //For the overlay, we want it to be semi-opaque so that the background still appears, but we still want the message to be readable
 
-    ctx.fillRect(-width / 2, -height / 2, width, height);
-    rafId = requestAnimationFrame(frame);
-  }
+  const overlay = () => {
+    //Create the overlay
+    const messageOverlay = document.createElement('div');
+    messageOverlay.classList.add(
+      'majors__overlay',
+      'absolute',
+      'top-0',
+      'h-full',
+      'w-full',
+      'left-0',
+      'flex',
+      'items-center',
+      'justify-center'
+    );
+
+    //Create the inner message container
+    const messageContainer = document.createElement('div');
+    messageContainer.classList.add('majors__message-container');
+
+    //Add the inner Message HTML
+
+    //Add the message to the overlay
+    messageOverlay.appendChild(messageContainer);
+
+    return messageOverlay;
+  };
+
+  //Add the overlay to the app
+  app.appendChild(overlay());
+
+  //create the animation for the overlay
+  const messageOverlay = document.querySelector('.majors__overlay');
+  const messageOverlayTL = gsap.timeline();
+
+  messageOverlayTL.to(messageOverlay, {
+    opacity: 1,
+    duration: 0.5,
+    delay: 4,
+    ease: 'power2'
+  });
 </script>
